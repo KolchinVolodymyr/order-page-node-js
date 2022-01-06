@@ -31,7 +31,7 @@ app.use(bodyParser.json())
             let scopes = webhooks.map(a => a.scope);
             const hookBody = {
                 "scope": "store/order/created",
-                "destination": "https://23dd-188-230-124-168.ngrok.io/webhooks",
+                "destination": "https://8240-188-230-124-168.ngrok.io/webhooks",
                 "is_active": true
             }
 
@@ -76,7 +76,7 @@ app.use(bodyParser.json())
                             bigCommerceV3.get(`/catalog/products/${el.product_id}`)
                                 .then((res)=>{
                                     // productBasePrice.push(`{${res.data.id}: ${res.data.price}${el.base_price}}`);
-                                    product.push(`{"id": "${el.id}", "name": "${el.name}", "base_price": "${res.data.price}", "quantity": "${el.quantity}", "product_options": [${product_options.toString()}], "hash": "${uuidv4()}", "user-agent": "${req.headers['user-agent']}", "ip_address" :"${IP}"}`);
+                                    product.push(`{"id": "${el.id}", "name": "${el.name}", "base_price": "${res.data.price}", "quantity": "${el.quantity}", "product_options": [${product_options.toString()}], "hash": "${uuidv4()}", "user_agent": "${req.headers['user-agent']}", "ip_address" :"${IP}"}`);
                                     resolve();
                                 })
                                 .catch((error) => {
